@@ -11,13 +11,15 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: signage-editor
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Install and Build
         run: |
-          cd signage-editor
           npm install
           npm run build
 
